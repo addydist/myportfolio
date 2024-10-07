@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import bslogo from "../../Assets/Projects/bslogo.png";
+import exalogo from "../../Assets/Projects/exalogo.png";
 import nclogo from "../../Assets/Projects/nclogo.png";
 import logoxt from "../../Assets/Projects/logoxt.png";
 
@@ -17,7 +17,7 @@ function Projects() {
         <Row style={{ justifyContent: "center", paddingBottom: "10px", display: "flex", flexDirection: "row" }}>
        <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={bslogo}
+              imgPath={exalogo}
               isBlog={false}
               title="Technology Consultant"
               description="Currently working on Cristal Bridge Project of SNP Group"
