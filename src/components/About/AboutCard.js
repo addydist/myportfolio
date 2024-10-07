@@ -11,7 +11,7 @@ function AboutCard() {
             Hi Everyone, I am <span className="purple">Aditya Pal </span>
             from <span className="purple"> Bareilly, UP.</span>
             <br />
-            I am currently employed as a software developer intern at Namaste Credit.
+            I am currently employed as Technology Consultant at EXA AG
             <br />
             I have completed BTech  in Information Science and Eng. at BMSIT
             Bengaluru.
