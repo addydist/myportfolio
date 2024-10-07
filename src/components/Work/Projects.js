@@ -15,6 +15,15 @@ function Projects() {
           <strong className="purple">Works Experiences </strong>
         </h1>
         <Row style={{ justifyContent: "center", paddingBottom: "10px", display: "flex", flexDirection: "row" }}>
+       <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={bslogo}
+              isBlog={false}
+              title="Technology Consultant"
+              description="Currently working on Cristal Bridge Project of SNP Group"
+              ghLink="https://exa-ag.com/"
+            />
+          </Col>
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={nclogo}
@@ -25,15 +34,7 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={bslogo}
-              isBlog={false}
-              title="Blockchain Content Writer"
-              description="At BlockSkillo, an edtech startup, I created and wrote educational content on blockchain technology, covering fundamental topics such as consensus mechanisms (PoS, PoW) and Bitcoin mining basics. I developed a comprehensive course tailored for students, aimed at demystifying complex blockchain concepts and providing a solid foundation in this emerging technology."
-              ghLink="https://www.blockskillo.com/"
-            />
-          </Col>
+        
 
           <Col md={4} className="project-card">
             <ProjectCard
