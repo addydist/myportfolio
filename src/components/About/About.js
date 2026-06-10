@@ -3,8 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
-import laptopImg from "../../Assets/about.png";
 import Toolstack from "./Toolstack";
+import Github from "./Github";
 
 function About() {
   return (
@@ -12,37 +12,29 @@ function About() {
       <Particle />
       <Container>
         <Row style={{ justifyContent: "center", padding: "10px" }}>
-          <Col
-            md={7}
-            style={{
-              justifyContent: "center",
-              paddingTop: "30px",
-              paddingBottom: "50px",
-            }}
-          >
-            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
-              Know Who <strong className="purple">I'M</strong>
+          <Col md={9} lg={8} style={{ paddingTop: "30px", paddingBottom: "30px" }}>
+            <h1 className="section-heading">
+              <span className="terminal-prompt">$</span> cat{" "}
+              <span className="purple">about.json</span>
             </h1>
             <Aboutcard />
           </Col>
-          <Col
-            md={5}
-            style={{ paddingTop: "120px", paddingBottom: "50px" }}
-            className="about-img"
-          >
-            <img src={laptopImg} alt="about" className="img-fluid" />
-          </Col>
         </Row>
-        <h1 className="project-heading">
-          Professional <strong className="purple">Skillset </strong>
+
+        <h1 className="section-heading">
+          <span className="terminal-prompt">$</span> ls{" "}
+          <span className="purple">./skills</span>
         </h1>
 
         <Techstack />
 
-        <h1 className="project-heading">
-          <strong className="purple">Tools</strong> I use
+        <h1 className="section-heading">
+          <span className="terminal-prompt">$</span> ls{" "}
+          <span className="purple">./tools</span>
         </h1>
         <Toolstack />
+
+        <Github />
       </Container>
     </Container>
   );

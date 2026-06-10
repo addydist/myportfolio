@@ -8,47 +8,41 @@ import {
   DiMongodb,
   DiGit,
   DiAws,
-  DiMysql
+  DiMysql,
 } from "react-icons/di";
 import {
   SiNextdotjs,
-  SiSolidity
+  SiSolidity,
+  SiTypescript,
+  SiNestjs,
+  SiTailwindcss,
 } from "react-icons/si";
-// import { TbBrandGolang } from "react-icons/tb";
+
+const skills = [
+  { icon: <DiReact />, label: "react.jsx" },
+  { icon: <SiNextdotjs />, label: "next.config" },
+  { icon: <DiNodejs />, label: "node.js" },
+  { icon: <SiNestjs />, label: "nest.ts" },
+  { icon: <SiTypescript />, label: "types.ts" },
+  { icon: <DiJavascript1 />, label: "script.js" },
+  { icon: <CgCPlusPlus />, label: "main.cpp" },
+  { icon: <SiSolidity />, label: "contract.sol" },
+  { icon: <DiMongodb />, label: "db.bson" },
+  { icon: <DiMysql />, label: "schema.sql" },
+  { icon: <SiTailwindcss />, label: "styles.css" },
+  { icon: <DiGit />, label: ".git" },
+  { icon: <DiAws />, label: "infra.yml" },
+];
 
 function Techstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <CgCPlusPlus />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiJavascript1 />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiNodejs />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiReact />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiSolidity />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiMongodb />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiNextdotjs />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiGit />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiMysql />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiAws />
-      </Col>
+      {skills.map((skill) => (
+        <Col xs={6} md={3} lg={2} className="tech-icons" key={skill.label}>
+          <div className="tech-icon-glyph">{skill.icon}</div>
+          <div className="tech-label">{skill.label}</div>
+        </Col>
+      ))}
     </Row>
   );
 }

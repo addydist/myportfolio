@@ -5,14 +5,15 @@ import { Row } from "react-bootstrap";
 function Github() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-      <h1 className="project-heading" style={{ paddingBottom: "20px" }}>
-        Days I <strong className="purple">Code</strong>
+      <h1 className="section-heading" style={{ textAlign: "center" }}>
+        <span className="terminal-prompt">$</span> git log{" "}
+        <span className="purple">--graph --all</span>
       </h1>
       <GitHubCalendar
         username="addydist"
         blockSize={15}
         blockMargin={5}
-        color="#c084f5"
+        color="#39ff88"
         fontSize={16}
       />
     </Row>

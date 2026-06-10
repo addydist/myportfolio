@@ -5,27 +5,26 @@ import {
   SiPostman,
   SiLinux,
   SiGit,
-  SiMysql
+  SiMysql,
 } from "react-icons/si";
+
+const tools = [
+  { icon: <SiGit />, label: ".gitconfig" },
+  { icon: <SiVisualstudiocode />, label: "code.exe" },
+  { icon: <SiPostman />, label: "requests.json" },
+  { icon: <SiMysql />, label: "mysql.cnf" },
+  { icon: <SiLinux />, label: "kernel" },
+];
 
 function Toolstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiGit />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiVisualstudiocode />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiPostman />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiMysql />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiLinux />
-      </Col>
+      {tools.map((tool) => (
+        <Col xs={6} md={3} lg={2} className="tech-icons" key={tool.label}>
+          <div className="tech-icon-glyph">{tool.icon}</div>
+          <div className="tech-label">{tool.label}</div>
+        </Col>
+      ))}
     </Row>
   );
 }

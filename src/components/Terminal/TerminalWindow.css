@@ -1,0 +1,90 @@
+.terminal-window {
+  background-color: rgba(13, 17, 23, 0.85);
+  border: 1px solid var(--term-border, #2a2f3a);
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(57, 255, 136, 0.04);
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  text-align: left;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.7em 1em;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--term-border, #2a2f3a);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 0.4em;
+}
+
+.terminal-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-red {
+  background-color: #ff5f56;
+}
+
+.dot-yellow {
+  background-color: #ffbd2e;
+}
+
+.dot-green {
+  background-color: #27c93f;
+}
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-size: 0.85em;
+  color: #8b949e;
+  font-family: "JetBrains Mono", monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.terminal-body {
+  padding: 1.5em 1.6em;
+  color: var(--term-text, #c9d1d9);
+  font-family: "JetBrains Mono", monospace;
+}
+
+.terminal-line {
+  margin: 0 0 0.6em 0;
+  font-size: 1em;
+}
+
+.terminal-prompt {
+  color: var(--imp-text-color, #39ff88);
+  margin-right: 0.5em;
+}
+
+.terminal-comment {
+  color: #6b7280;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 9px;
+  height: 1.1em;
+  background: var(--imp-text-color, #39ff88);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: blink-cursor 1s steps(1) infinite;
+}
+
+@keyframes blink-cursor {
+  50% {
+    opacity: 0;
+  }
+}

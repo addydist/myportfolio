@@ -2,67 +2,89 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-} from "react-icons/ai";
+import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import TerminalWindow from "../Terminal/TerminalWindow";
 
 function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
-        <Row>
-          <Col md={8} className="home-about-description">
-            <h1 style={{ fontSize: "2.6em" }}>
-              LET ME <span className="purple"> INTRODUCE </span> MYSELF
-            </h1>
-            <p className="home-about-body">
-              
-              I've developed a passion for programming and have gained valuable knowledge along the way. 🤷‍♂️
-              <br />
-              <br />I am fluent in classics like
-              <i>
-                <b className="purple"> Nodejs,Reactjs and C++ </b>
-              </i>
-              <br />
-              <br />
-              My field of Interest's are building new &nbsp;
-              <i>
-                <b className="purple">Full stack Technologies and Products </b> and
-                also in areas related to{" "}
-                <b className="purple">
-                  Blockchain and Web3
-                </b>
-              </i>
-              <br />
-              <br />
-              Whenever possible, I also apply my passion for developing products
-              with <b className="purple">Node.js</b> and
-              <i>
-                <b className="purple">
-                  {" "}
-                  Modern  Library and Frameworks
-                </b>
-              </i>
-              &nbsp; related 
-              <i>
-                <b className="purple"> Web3 and Next.js</b>
-              </i>
-            </p>
-          </Col>
-          <Col md={4} className="myAvtar">
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
-            </Tilt>
+        <Row className="justify-content-center">
+          <Col md={11} lg={10}>
+            <TerminalWindow title="aditya@portfolio:~$ cat about.md">
+              <Row>
+                <Col md={8} className="home-about-description">
+                  <h2 className="about-heading">
+                    LET ME <span className="purple">INTRODUCE</span> MYSELF
+                  </h2>
+                  <p className="home-about-body">
+                    I've developed a strong passion for building things with
+                    code &mdash; from full-stack web apps to Web3 dApps and
+                    browser extensions. 🤷‍♂️
+                    <br />
+                    <br />
+                    I'm fluent in classics like{" "}
+                    <i>
+                      <b className="purple">
+                        C++, JavaScript / TypeScript, Node.js and React
+                      </b>
+                    </i>
+                    .
+                    <br />
+                    <br />
+                    Currently, I work as a{" "}
+                    <b className="purple">
+                      Technology Consultant @ EXA AG
+                    </b>
+                    , contributing to the Cristal Bridge project for SNP
+                    Group.
+                    <br />
+                    <br />
+                    My fields of interest include building scalable{" "}
+                    <i>
+                      <b className="purple">
+                        full-stack products with Next.js and NestJS
+                      </b>
+                    </i>
+                    , and exploring{" "}
+                    <i>
+                      <b className="purple">Blockchain &amp; Web3</b>
+                    </i>{" "}
+                    &mdash; from smart contracts in Solidity to dApps with
+                    Ethers.js and Hardhat.
+                    <br />
+                    <br />
+                    Whenever I get the time, I hack on side projects &mdash;
+                    most recently{" "}
+                    <i>
+                      <b className="purple">LifeForge</b>
+                    </i>
+                    , a gamified productivity app, and{" "}
+                    <i>
+                      <b className="purple">Storage Manager Pro</b>
+                    </i>
+                    , a Chrome extension for managing browser storage.
+                  </p>
+                </Col>
+                <Col md={4} className="myAvtar">
+                  <Tilt>
+                    <img
+                      src={myImg}
+                      className="img-fluid avatar-img"
+                      alt="avatar"
+                    />
+                  </Tilt>
+                </Col>
+              </Row>
+            </TerminalWindow>
           </Col>
         </Row>
         <Row>
           <Col md={12} className="home-about-social">
-            <h1>FIND ME ON</h1>
+            <h2 className="about-heading">FIND ME ON</h2>
             <p>
-              Feel free to <span className="purple">connect </span>with me
+              Feel free to <span className="purple">connect</span> with me
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">
