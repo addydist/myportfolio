@@ -20,6 +20,7 @@ const projects = [
       "A gamified productivity app that turns real-world task completion into virtual city-building and character progression — streak multipliers, rare collectible monuments, and a passive income system.",
     tags: ["React", "Zustand", "Gamification"],
     ghLink: "https://github.com/addydist/buildYou-",
+    demoLink: "https://lifeforgewithaddy.xyz/",
   },
   {
     fileName: "storage-manager.tsx",
