@@ -12,7 +12,7 @@ import {
 } from "react-icons/di";
 import {
   SiNextdotjs,
-  SiSolidity,
+  SiPrisma,
   SiTypescript,
   SiNestjs,
   SiTailwindcss,
@@ -26,7 +26,7 @@ const skills = [
   { icon: <SiTypescript />, label: "types.ts" },
   { icon: <DiJavascript1 />, label: "script.js" },
   { icon: <CgCPlusPlus />, label: "main.cpp" },
-  { icon: <SiSolidity />, label: "contract.sol" },
+  { icon: <SiPrisma />, label: "schema.prisma" },
   { icon: <DiMongodb />, label: "db.bson" },
   { icon: <DiMysql />, label: "schema.sql" },
   { icon: <SiTailwindcss />, label: "styles.css" },

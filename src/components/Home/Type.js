@@ -8,7 +8,7 @@ function Type() {
         strings: [
           "Technology Consultant @ EXA AG",
           "Full Stack Developer (Node.js / React / Next.js)",
-          "Web3 & Blockchain Enthusiast",
+          "AI & Automation Enthusiast",
           "Open Source Contributor",
         ],
         autoStart: true,

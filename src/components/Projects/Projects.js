@@ -31,12 +31,13 @@ const projects = [
     ghLink: "https://github.com/addydist/storage-manager-extension",
   },
   {
-    fileName: "nest-away.tsx",
-    title: "NestAway",
+    fileName: "apprendre.tsx",
+    title: "Apprendre le Français",
     description:
-      "A real estate rental platform built with React.js, enabling secure transactions and listing management between owners, tenants and brokers, with wallet-based authentication.",
-    tags: ["React", "Ethers.js", "Hardhat"],
-    ghLink: "https://github.com/addydist/NestAway",
+      "An AI-powered French learning platform that takes you from beginner (A1) to exam-ready B2+ for TEF & TCF certifications — with structured lessons, translation practice, and review tools, powered by Anthropic and Google AI.",
+    tags: ["Next.js", "TypeScript", "Tailwind", "Anthropic AI", "Google AI"],
+    ghLink: "https://github.com/addydist/apprendre-le-francais",
+    demoLink: "https://apprendre-le-francais.vercel.app",
   },
   {
     fileName: "card-game.tsx",

@@ -20,8 +20,8 @@ function Home2() {
                   </h2>
                   <p className="home-about-body">
                     I've developed a strong passion for building things with
-                    code &mdash; from full-stack web apps to Web3 dApps and
-                    browser extensions. 🤷‍♂️
+                    code &mdash; from full-stack web apps to AI-powered
+                    platforms and browser extensions.
                     <br />
                     <br />
                     I'm fluent in classics like{" "}
@@ -49,22 +49,22 @@ function Home2() {
                     </i>
                     , and exploring{" "}
                     <i>
-                      <b className="purple">Blockchain &amp; Web3</b>
+                      <b className="purple">AI &amp; Automation</b>
                     </i>{" "}
-                    &mdash; from smart contracts in Solidity to dApps with
-                    Ethers.js and Hardhat.
+                    &mdash; integrating multi-LLM providers into workflow
+                    tools and intelligent applications.
                     <br />
                     <br />
                     Whenever I get the time, I hack on side projects &mdash;
                     most recently{" "}
                     <i>
-                      <b className="purple">LifeForge</b>
+                      <b className="purple">WorkFloAuto</b>
                     </i>
-                    , a gamified productivity app, and{" "}
+                    , an AI workflow automation platform, and{" "}
                     <i>
-                      <b className="purple">Storage Manager Pro</b>
+                      <b className="purple">Apprendre le Français</b>
                     </i>
-                    , a Chrome extension for managing browser storage.
+                    , an AI-powered French learning app.
                   </p>
                 </Col>
                 <Col md={4} className="myAvtar">
