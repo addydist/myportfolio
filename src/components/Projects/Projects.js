@@ -23,12 +23,13 @@ const projects = [
     demoLink: "https://lifeforgewithaddy.xyz/",
   },
   {
-    fileName: "storage-manager.tsx",
-    title: "Storage Manager Pro",
+    fileName: "smart-cache-api.tsx",
+    title: "Smart Cache API",
     description:
-      "A Chrome extension (Manifest V3) for managing browser localStorage & sessionStorage through a modern React + Tailwind dashboard — search, inline edit, JSON import/export, and virtualized tables.",
-    tags: ["Chrome Extension", "React 18", "Tailwind", "Manifest V3"],
-    ghLink: "https://github.com/addydist/storage-manager-extension",
+      "A NestJS reference service showcasing a smart HTTP caching layer — tag-based invalidation, cache-stampede protection via request coalescing, live Prometheus-style metrics, and a built-in dashboard to inspect and manage cache entries in real time.",
+    tags: ["NestJS", "TypeScript", "Redis", "cache-manager", "Prometheus"],
+    ghLink: "https://github.com/addydist/smart-cache-api",
+    demoLink: "https://smart-cache-api.onrender.com/",
   },
   {
     fileName: "apprendre.tsx",
