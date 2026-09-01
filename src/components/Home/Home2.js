@@ -4,6 +4,8 @@ import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
 import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { CgMail } from "react-icons/cg";
+import { Link } from "react-router-dom";
 import TerminalWindow from "../Terminal/TerminalWindow";
 
 function Home2() {
@@ -37,7 +39,7 @@ function Home2() {
                     <b className="purple">
                       Technology Consultant @ EXA AG
                     </b>
-                    , contributing to the Cristal Bridge project for SNP
+                    , contributing to the Kyano of SNP
                     Group.
                     <br />
                     <br />
@@ -58,13 +60,15 @@ function Home2() {
                     Whenever I get the time, I hack on side projects &mdash;
                     most recently{" "}
                     <i>
-                      <b className="purple">WorkFloAuto</b>
+                      <b className="purple">Nodeflo</b>
                     </i>
-                    , an AI workflow automation platform, and{" "}
+                    , a self-hostable workflow automation platform where AI
+                    builds the workflow from a plain-English prompt, and{" "}
                     <i>
-                      <b className="purple">Apprendre le Français</b>
+                      <b className="purple">MonsoonSafe</b>
                     </i>
-                    , an AI-powered French learning app.
+                    , a GenAI monsoon-preparedness assistant built for
+                    PromptWars.
                   </p>
                 </Col>
                 <Col md={4} className="myAvtar">
@@ -85,6 +89,11 @@ function Home2() {
             <h2 className="about-heading">FIND ME ON</h2>
             <p>
               Feel free to <span className="purple">connect</span> with me
+            </p>
+            <p style={{ marginTop: "1.2em" }}>
+              <Link to="/contact" className="term-link">
+                <CgMail /> ./contact
+              </Link>
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">

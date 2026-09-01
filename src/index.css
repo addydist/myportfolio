@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap");
+/* Base document styles. Colour tokens live in src/theme.css (Doom 64). */
 
 * {
   box-sizing: border-box;
@@ -6,14 +6,53 @@
 
 body {
   margin: 0;
-  font-family: "JetBrains Mono", "Fira Code", monospace !important;
+  /* Source Code Pro is the Doom 64 mono face and keeps the terminal look. */
+  font-family: var(--font-mono, "Source Code Pro", monospace);
+  letter-spacing: var(--tracking-normal, 0em);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #05070a;
-  background-image: linear-gradient(180deg, #070b10 0%, #05070a 100%);
+  color: var(--foreground);
+  background-color: var(--background);
+  background-image: linear-gradient(
+    180deg,
+    oklch(var(--background-oklch)) 0%,
+    oklch(var(--sidebar-oklch)) 100%
+  );
+  background-attachment: fixed;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Oxanium is the Doom 64 display face — used for headings and chrome. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand-text,
+.hero-name,
+.section-heading {
+  font-family: var(--font-sans, "Oxanium", sans-serif);
 }
 
 code,
-pre {
-  font-family: "JetBrains Mono", "Fira Code", monospace;
+pre,
+kbd {
+  font-family: var(--font-mono, "Source Code Pro", monospace);
+}
+
+::selection {
+  background: oklch(var(--primary-oklch) / 0.35);
+  color: var(--foreground);
+}
+
+/* Honour reduced-motion for the decorative cursor/wave animations. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

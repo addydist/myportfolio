@@ -11,8 +11,8 @@ function Footer() {
       <Container>
         <Row className="align-items-center">
           <Col md={8} className="footer-prompt">
-            <span className="terminal-prompt">$</span> echo "Built by Aditya
-            Pal &copy; {year}"
+            <span className="terminal-prompt">$</span> echo "Built by addydist
+             &copy; {year}"
             <span className="terminal-cursor"></span>
           </Col>
           <Col md={4} className="footer-body">

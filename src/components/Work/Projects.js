@@ -54,7 +54,6 @@ function Projects() {
             <div className="git-commit" key={exp.hash}>
               <div className="commit-hash">commit {exp.hash}</div>
               <div className="commit-meta">Author: Aditya Pal</div>
-              <div className="commit-meta">Date: {exp.period}</div>
               <div className="commit-message">
                 <span className="purple">{exp.role}</span> @ {exp.company}
               </div>

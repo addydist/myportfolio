@@ -1,24 +1,8 @@
-html {
-  --section-background-color: linear-gradient(
-    to bottom left,
-    rgba(8, 12, 18, 0.88),
-    rgba(4, 6, 10, 0.96)
-  );
-
-  --image-gradient: linear-gradient(
-    to bottom left,
-    rgba(8, 12, 18, 0.85),
-    rgba(4, 6, 10, 0.94)
-  );
-
-  --imp-text-color: #39ff88;
-  --term-cyan: #5ee6e0;
-  --term-amber: #f5c451;
-  --term-bg: #0d1117;
-  --term-border: #2a2f3a;
-  --term-text: #c9d1d9;
-  --term-muted: #6b7280;
-}
+/* =========================================================================
+   Portfolio styles — themed with Doom 64 (see src/theme.css).
+   Every colour here resolves through a token, so light and dark modes are
+   handled by swapping the tokens rather than by duplicating these rules.
+   ========================================================================= */
 
 .purple {
   color: var(--imp-text-color) !important;
@@ -26,6 +10,13 @@ html {
 
 button:focus {
   box-shadow: none !important;
+}
+
+/* Doom 64 has radius 0 — keep focus rings visible for keyboard users. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ring) !important;
+  outline-offset: 2px !important;
 }
 
 /* --------- */
@@ -38,7 +29,7 @@ button:focus {
   width: 100%;
   height: 100%;
   z-index: 999999;
-  background-color: #05070a;
+  background-color: var(--background);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +42,7 @@ button:focus {
 }
 
 .boot-text {
-  color: var(--imp-text-color);
+  color: var(--term-green);
   font-size: 1.3em;
 }
 
@@ -59,7 +50,7 @@ button:focus {
   display: inline-block;
   width: 10px;
   height: 1.1em;
-  background: var(--imp-text-color);
+  background: var(--term-green);
   margin-left: 6px;
   vertical-align: text-bottom;
   animation: blink-cursor 1s steps(1) infinite;
@@ -85,27 +76,27 @@ button:focus {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d1117;
+  background: var(--muted);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(57, 255, 136, 0.4);
-  border-radius: 8px;
+  background: oklch(var(--primary-oklch) / 0.55);
+  border-radius: var(--radius);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(57, 255, 136, 0.7);
+  background: var(--primary);
 }
 
 /* --------- */
 /* Navbar Section  */
 /* --------- */
 .sticky {
-  background-color: rgba(8, 11, 16, 0.85) !important;
+  background-color: oklch(var(--sidebar-oklch) / 0.88) !important;
   transition: all 0.3s ease-out 0s !important;
-  box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: var(--shadow-lg) !important;
   backdrop-filter: blur(12px) !important;
-  border-bottom: 1px solid rgba(57, 255, 136, 0.15) !important;
+  border-bottom: 1px solid oklch(var(--primary-oklch) / 0.35) !important;
 }
 
 .navbar {
@@ -170,7 +161,7 @@ button:focus {
   .navbar {
     padding: 1rem 2rem !important;
     font-size: 1.2rem !important;
-    background-color: #0a0e14 !important;
+    background-color: var(--sidebar) !important;
   }
   .navbar-nav .nav-item a::after {
     display: none !important;
@@ -179,7 +170,7 @@ button:focus {
 
 .navbar-brand-text {
   color: var(--imp-text-color) !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   font-size: 1.05em !important;
   letter-spacing: 0.5px;
 }
@@ -192,7 +183,7 @@ button:focus {
   display: inline-block;
   width: 8px;
   height: 1em;
-  background: var(--imp-text-color);
+  background: var(--term-green);
   margin-left: 4px;
   vertical-align: text-bottom;
   animation: blink-cursor 1s steps(1) infinite;
@@ -210,7 +201,7 @@ button:focus {
 
 .nav-cmd {
   color: var(--term-cyan);
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .nav-link {
@@ -241,7 +232,7 @@ button:focus {
   display: block;
   height: 2px;
   width: 0;
-  border-radius: 2px;
+  border-radius: var(--radius);
   background: var(--imp-text-color);
   bottom: -3px;
   left: 0;
@@ -251,6 +242,53 @@ button:focus {
 
 .navbar-nav .nav-item a:hover::after {
   width: 100%;
+}
+
+/* --------- */
+/* Theme toggle */
+/* --------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-left: 14px;
+  padding: 0.4em 0.8em;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1;
+  color: var(--term-text);
+  background: var(--surface-raised);
+  border: 1px solid var(--term-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--imp-text-color);
+  border-color: var(--imp-text-color);
+  background: oklch(var(--primary-oklch) / 0.1);
+}
+
+.theme-toggle-icon {
+  display: inline-flex;
+  font-size: 1em;
+  color: var(--term-amber);
+}
+
+.theme-toggle:hover .theme-toggle-icon {
+  color: var(--imp-text-color);
+}
+
+.theme-toggle-label {
+  text-transform: lowercase;
+}
+
+@media (max-width: 767px) {
+  .theme-toggle {
+    margin: 0.6em 0 0.4em 14px;
+  }
 }
 
 /* --------- */
@@ -302,7 +340,7 @@ button:focus {
 .home-section {
   position: relative;
   z-index: -1;
-  background: var(--image-gradient), #05070a;
+  background: var(--image-gradient), var(--background);
   background-position: top center;
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
@@ -341,7 +379,7 @@ button:focus {
 }
 .Typewriter__cursor {
   font-size: 1.4em !important;
-  color: var(--imp-text-color) !important;
+  color: var(--term-green) !important;
 }
 
 @media (max-width: 767px) {
@@ -395,8 +433,8 @@ button:focus {
 
 .avatar-img {
   border: 1px solid var(--term-border);
-  border-radius: 10px;
-  box-shadow: 0 0 30px rgba(57, 255, 136, 0.1);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
   max-height: 260px;
 }
 
@@ -422,16 +460,16 @@ button:focus {
   text-align: center !important;
   font-size: 1.2em !important;
   line-height: 2.15em !important;
-  background: rgba(255, 255, 255, 0.04) !important;
+  background: var(--surface-raised) !important;
   border: 1px solid var(--term-border) !important;
-  border-radius: 50% !important;
+  border-radius: var(--radius) !important;
   transition: 0.3s !important;
 }
 
 .home-social-icons:hover {
   color: var(--imp-text-color) !important;
   border-color: var(--imp-text-color) !important;
-  box-shadow: 0 0 14px rgba(57, 255, 136, 0.35) !important;
+  background: oklch(var(--primary-oklch) / 0.12) !important;
   transform: translateY(-3px);
 }
 
@@ -449,7 +487,7 @@ button:focus {
 /* Footer */
 /* --------- */
 .footer {
-  background-color: #05070a;
+  background-color: var(--sidebar);
   border-top: 1px solid var(--term-border);
   bottom: 0 !important;
   padding-top: 18px !important;
@@ -484,9 +522,15 @@ button:focus {
 .section-heading {
   color: var(--term-text) !important;
   font-size: 1.9em !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   padding-top: 10px !important;
   margin-bottom: 0.6em !important;
+}
+
+.section-subtitle {
+  color: var(--term-muted);
+  margin-bottom: 1.8em;
+  max-width: 62ch;
 }
 
 /* --------- */
@@ -515,8 +559,7 @@ button:focus {
 
 .project-card-window:hover {
   transform: translateY(-6px);
-  box-shadow: 0 14px 40px rgba(57, 255, 136, 0.12),
-    0 0 0 1px rgba(57, 255, 136, 0.18);
+  box-shadow: var(--shadow-xl), 0 0 0 1px oklch(var(--primary-oklch) / 0.45);
 }
 
 .project-title {
@@ -542,10 +585,10 @@ button:focus {
 .tag-chip {
   font-size: 0.72em;
   padding: 0.25em 0.7em;
-  border: 1px solid rgba(94, 230, 224, 0.4);
-  border-radius: 4px;
+  border: 1px solid oklch(var(--accent-oklch) / 0.55);
+  border-radius: var(--radius);
   color: var(--term-cyan);
-  background: rgba(94, 230, 224, 0.06);
+  background: oklch(var(--accent-oklch) / 0.1);
   white-space: nowrap;
 }
 
@@ -559,31 +602,57 @@ button:focus {
 .term-link {
   color: var(--imp-text-color);
   text-decoration: none !important;
+  background: transparent;
   border: 1px solid var(--imp-text-color);
   padding: 0.4em 0.9em;
-  border-radius: 4px;
+  border-radius: var(--radius);
   font-size: 0.85em;
   display: inline-flex;
   align-items: center;
   gap: 0.4em;
+  cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .term-link:hover {
   background: var(--imp-text-color);
-  color: #05070a;
+  color: var(--primary-foreground);
+}
+
+.term-link.is-disabled {
+  color: var(--term-muted);
+  border-color: var(--term-border);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.term-link.is-disabled:hover {
+  background: transparent;
+  color: var(--term-muted);
+}
+
+.inline-link {
+  color: var(--term-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid oklch(var(--accent-oklch) / 0.4);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.inline-link:hover {
+  color: var(--imp-text-color);
+  border-bottom-color: var(--imp-text-color);
 }
 
 .btn-primary {
   color: var(--imp-text-color) !important;
   background-color: transparent !important;
   border: 1px solid var(--imp-text-color) !important;
-  border-radius: 4px !important;
+  border-radius: var(--radius) !important;
   transition: all 0.25s ease !important;
 }
 
 .btn-primary:hover {
-  color: #05070a !important;
+  color: var(--primary-foreground) !important;
   background-color: var(--imp-text-color) !important;
   border-color: var(--imp-text-color) !important;
 }
@@ -609,8 +678,8 @@ button:focus {
   margin: 10px !important;
   padding: 16px 8px !important;
   border: 1px solid var(--term-border) !important;
-  border-radius: 6px !important;
-  background: rgba(255, 255, 255, 0.02) !important;
+  border-radius: var(--radius) !important;
+  background: var(--surface-raised) !important;
   vertical-align: middle !important;
   text-align: center !important;
   transition: all 0.3s ease !important;
@@ -618,7 +687,8 @@ button:focus {
 
 .tech-icons:hover {
   border-color: var(--imp-text-color) !important;
-  box-shadow: 0 8px 22px rgba(57, 255, 136, 0.15) !important;
+  box-shadow: var(--shadow-lg) !important;
+  background: oklch(var(--primary-oklch) / 0.1) !important;
   transform: translateY(-4px);
 }
 
@@ -687,7 +757,7 @@ button:focus {
   height: 12px;
   border-radius: 50%;
   background: var(--imp-text-color);
-  box-shadow: 0 0 0 4px rgba(57, 255, 136, 0.12);
+  box-shadow: 0 0 0 4px oklch(var(--primary-oklch) / 0.2);
 }
 
 .commit-hash {
@@ -713,6 +783,7 @@ button:focus {
   line-height: 1.7;
   text-align: left;
   max-width: 800px;
+  white-space: pre-line;
 }
 
 /* --------- */
@@ -744,4 +815,93 @@ button:focus {
   max-width: 100% !important;
   height: auto !important;
   border: 1px solid var(--term-border);
+}
+
+/* --------- */
+/* Contact (Typeform) */
+/* --------- */
+.contact-section {
+  position: relative !important;
+  padding-top: 150px !important;
+  padding-bottom: 60px !important;
+  background-image: var(--section-background-color) !important;
+  color: var(--term-text) !important;
+}
+
+/* The Typeform iframe is embedded with opacity=0 so the form background is
+   transparent and the Doom 64 surface below shows through in both modes. */
+.typeform-widget {
+  width: 100%;
+  height: 520px;
+  margin-top: 1.2em;
+  border: 1px solid var(--term-border);
+  border-radius: var(--radius);
+  background: transparent;
+}
+
+@media (max-width: 767px) {
+  .typeform-widget {
+    height: 460px;
+  }
+}
+
+.typeform-setup .setup-code {
+  margin: 0.8em 0 0;
+  padding: 0.9em 1.1em;
+  color: var(--term-amber);
+  background: var(--surface-raised);
+  border: 1px dashed var(--term-border);
+  border-radius: var(--radius);
+  font-size: 0.9em;
+  overflow-x: auto;
+}
+
+.typeform-setup .setup-steps {
+  margin: 0.8em 0 0;
+  padding-left: 1.3em;
+  color: var(--term-text);
+  font-size: 0.92em;
+  line-height: 1.9;
+}
+
+.typeform-setup .setup-steps code {
+  color: var(--term-cyan);
+  background: var(--surface-raised);
+  padding: 0.1em 0.4em;
+  border-radius: var(--radius);
+}
+
+.contact-alt {
+  margin-top: 1.8em;
+}
+
+.contact-alt-col {
+  margin-bottom: 1.5em;
+  display: flex;
+}
+
+.contact-alt-col > .terminal-window {
+  width: 100%;
+}
+
+.contact-alt-body {
+  color: var(--term-muted);
+  font-size: 0.9em;
+  margin: 0.4em 0 1.2em;
+}
+
+.contact-social-list {
+  list-style: none;
+  margin: 0.8em 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  font-size: 0.95em;
+}
+
+.contact-social-icon {
+  display: inline-flex;
+  margin-right: 0.6em;
+  color: var(--term-green);
 }

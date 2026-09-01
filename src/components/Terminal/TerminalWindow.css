@@ -1,12 +1,14 @@
+/* Terminal chrome, themed with Doom 64 tokens (see src/theme.css). */
+
 .terminal-window {
-  background-color: rgba(13, 17, 23, 0.85);
-  border: 1px solid var(--term-border, #2a2f3a);
-  border-radius: 8px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(57, 255, 136, 0.04);
+  background-color: oklch(var(--card-oklch) / 0.92);
+  border: 1px solid var(--term-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
   backdrop-filter: blur(6px);
   text-align: left;
+  color: var(--card-foreground);
 }
 
 .terminal-header {
@@ -14,8 +16,8 @@
   align-items: center;
   gap: 0.7em;
   padding: 0.7em 1em;
-  background-color: rgba(255, 255, 255, 0.03);
-  border-bottom: 1px solid var(--term-border, #2a2f3a);
+  background-color: var(--surface-raised);
+  border-bottom: 1px solid var(--term-border);
 }
 
 .terminal-dots {
@@ -30,24 +32,25 @@
   display: inline-block;
 }
 
+/* Window buttons map onto the Doom 64 accents. */
 .dot-red {
-  background-color: #ff5f56;
+  background-color: var(--primary);
 }
 
 .dot-yellow {
-  background-color: #ffbd2e;
+  background-color: var(--destructive);
 }
 
 .dot-green {
-  background-color: #27c93f;
+  background-color: var(--secondary);
 }
 
 .terminal-title {
   flex: 1;
   text-align: center;
   font-size: 0.85em;
-  color: #8b949e;
-  font-family: "JetBrains Mono", monospace;
+  color: var(--term-muted);
+  font-family: var(--font-mono);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -55,8 +58,8 @@
 
 .terminal-body {
   padding: 1.5em 1.6em;
-  color: var(--term-text, #c9d1d9);
-  font-family: "JetBrains Mono", monospace;
+  color: var(--term-text);
+  font-family: var(--font-mono);
 }
 
 .terminal-line {
@@ -65,19 +68,20 @@
 }
 
 .terminal-prompt {
-  color: var(--imp-text-color, #39ff88);
+  color: var(--term-green);
   margin-right: 0.5em;
+  font-weight: 600;
 }
 
 .terminal-comment {
-  color: #6b7280;
+  color: var(--term-muted);
 }
 
 .terminal-cursor {
   display: inline-block;
   width: 9px;
   height: 1.1em;
-  background: var(--imp-text-color, #39ff88);
+  background: var(--term-green);
   margin-left: 4px;
   vertical-align: text-bottom;
   animation: blink-cursor 1s steps(1) infinite;

@@ -5,8 +5,31 @@
   <meta charset="utf-8" />
   <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#05070a" />
+  <meta name="theme-color" content="#1a1a1a" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <!-- Resolve the Doom 64 colour mode before first paint so there is no
+       flash of the wrong theme while the React bundle loads. Kept in sync
+       with src/theme/ThemeContext.js (THEME_STORAGE_KEY). -->
+  <script>
+    (function () {
+      try {
+        var stored = window.localStorage.getItem("portfolio-theme");
+        var theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.style.backgroundColor =
+          theme === "dark" ? "#1a1a1a" : "#cccccc";
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
   <title>aditya@portfolio:~$</title>
   <meta name="description" content="Aditya Pal — Technology Consultant & Full Stack Developer. Portfolio built with React.js.">
 

@@ -1,0 +1,199 @@
+/* =========================================================================
+   Doom 64 — tweakcn (https://tweakcn.com/editor/theme)
+   -------------------------------------------------------------------------
+   Tokens are stored as raw oklch components (`L C H`) so any of them can be
+   used with an alpha channel:  oklch(var(--primary-oklch) / 0.25)
+   Each raw token has a resolved companion (`--primary`) for plain use.
+
+   Light is the default on :root. Dark is applied two ways:
+     1. prefers-color-scheme — only while no explicit choice exists, so the
+        first paint is right even before React boots.
+     2. [data-theme="dark"] — explicit user choice, set by ThemeContext.
+   ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap");
+
+:root {
+  /* ---- Doom 64 :: light ------------------------------------------------ */
+  --background-oklch: 0.8452 0 0;
+  --foreground-oklch: 0.2393 0 0;
+  --card-oklch: 0.7572 0 0;
+  --card-foreground-oklch: 0.2393 0 0;
+  --popover-oklch: 0.7572 0 0;
+  --popover-foreground-oklch: 0.2393 0 0;
+  --primary-oklch: 0.5016 0.1887 27.4816;
+  --primary-foreground-oklch: 1 0 0;
+  --secondary-oklch: 0.4955 0.0896 126.1858;
+  --secondary-foreground-oklch: 1 0 0;
+  --muted-oklch: 0.7826 0 0;
+  --muted-foreground-oklch: 0.4091 0 0;
+  --accent-oklch: 0.588 0.0993 245.7394;
+  --accent-foreground-oklch: 1 0 0;
+  --destructive-oklch: 0.7076 0.1975 46.4558;
+  --destructive-foreground-oklch: 0 0 0;
+  --border-oklch: 0.4313 0 0;
+  --input-oklch: 0.4313 0 0;
+  --ring-oklch: 0.5016 0.1887 27.4816;
+  --sidebar-oklch: 0.7572 0 0;
+
+  /* Tint for raised strips (terminal title bars, chips) over --card */
+  --overlay-oklch: 0.2393 0 0;
+  --overlay-strength: 0.06;
+
+  /* Shadows — Doom 64 light (opacity .4 / blur 4px) */
+  --shadow-2xs: 0px 2px 4px 0px hsl(0 0% 0% / 0.2);
+  --shadow-xs: 0px 2px 4px 0px hsl(0 0% 0% / 0.2);
+  --shadow-sm: 0px 2px 4px 0px hsl(0 0% 0% / 0.4), 0px 1px 2px -1px hsl(0 0% 0% / 0.4);
+  --shadow: 0px 2px 4px 0px hsl(0 0% 0% / 0.4), 0px 1px 2px -1px hsl(0 0% 0% / 0.4);
+  --shadow-md: 0px 2px 4px 0px hsl(0 0% 0% / 0.4), 0px 2px 4px -1px hsl(0 0% 0% / 0.4);
+  --shadow-lg: 0px 2px 4px 0px hsl(0 0% 0% / 0.4), 0px 4px 6px -1px hsl(0 0% 0% / 0.4);
+  --shadow-xl: 0px 2px 4px 0px hsl(0 0% 0% / 0.4), 0px 8px 10px -1px hsl(0 0% 0% / 0.4);
+  --shadow-2xl: 0px 2px 4px 0px hsl(0 0% 0% / 1);
+
+  color-scheme: light;
+}
+
+/* ---- Doom 64 :: dark (system preference, no explicit choice yet) -------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background-oklch: 0.2178 0 0;
+    --foreground-oklch: 0.9067 0 0;
+    --card-oklch: 0.285 0 0;
+    --card-foreground-oklch: 0.9067 0 0;
+    --popover-oklch: 0.285 0 0;
+    --popover-foreground-oklch: 0.9067 0 0;
+    --primary-oklch: 0.6083 0.209 27.0276;
+    --primary-foreground-oklch: 1 0 0;
+    --secondary-oklch: 0.6423 0.1467 133.0145;
+    --secondary-foreground-oklch: 0 0 0;
+    --muted-oklch: 0.2645 0 0;
+    --muted-foreground-oklch: 0.7058 0 0;
+    --accent-oklch: 0.7482 0.1235 244.7492;
+    --accent-foreground-oklch: 0 0 0;
+    --destructive-oklch: 0.7839 0.1719 68.0943;
+    --destructive-foreground-oklch: 0 0 0;
+    --border-oklch: 0.4091 0 0;
+    --input-oklch: 0.4091 0 0;
+    --ring-oklch: 0.6083 0.209 27.0276;
+    --sidebar-oklch: 0.1913 0 0;
+
+    --overlay-oklch: 1 0 0;
+    --overlay-strength: 0.04;
+
+    --shadow-2xs: 0px 2px 5px 0px hsl(0 0% 0% / 0.3);
+    --shadow-xs: 0px 2px 5px 0px hsl(0 0% 0% / 0.3);
+    --shadow-sm: 0px 2px 5px 0px hsl(0 0% 0% / 0.6), 0px 1px 2px -1px hsl(0 0% 0% / 0.6);
+    --shadow: 0px 2px 5px 0px hsl(0 0% 0% / 0.6), 0px 1px 2px -1px hsl(0 0% 0% / 0.6);
+    --shadow-md: 0px 2px 5px 0px hsl(0 0% 0% / 0.6), 0px 2px 4px -1px hsl(0 0% 0% / 0.6);
+    --shadow-lg: 0px 2px 5px 0px hsl(0 0% 0% / 0.6), 0px 4px 6px -1px hsl(0 0% 0% / 0.6);
+    --shadow-xl: 0px 2px 5px 0px hsl(0 0% 0% / 0.6), 0px 8px 10px -1px hsl(0 0% 0% / 0.6);
+    --shadow-2xl: 0px 2px 5px 0px hsl(0 0% 0% / 1);
+
+    color-scheme: dark;
+  }
+}
+
+/* ---- Doom 64 :: dark (explicit user choice) ---------------------------- */
+:root[data-theme="dark"] {
+  --background-oklch: 0.2178 0 0;
+  --foreground-oklch: 0.9067 0 0;
+  --card-oklch: 0.285 0 0;
+  --card-foreground-oklch: 0.9067 0 0;
+  --popover-oklch: 0.285 0 0;
+  --popover-foreground-oklch: 0.9067 0 0;
+  --primary-oklch: 0.6083 0.209 27.0276;
+  --primary-foreground-oklch: 1 0 0;
+  --secondary-oklch: 0.6423 0.1467 133.0145;
+  --secondary-foreground-oklch: 0 0 0;
+  --muted-oklch: 0.2645 0 0;
+  --muted-foreground-oklch: 0.7058 0 0;
+  --accent-oklch: 0.7482 0.1235 244.7492;
+  --accent-foreground-oklch: 0 0 0;
+  --destructive-oklch: 0.7839 0.1719 68.0943;
+  --destructive-foreground-oklch: 0 0 0;
+  --border-oklch: 0.4091 0 0;
+  --input-oklch: 0.4091 0 0;
+  --ring-oklch: 0.6083 0.209 27.0276;
+  --sidebar-oklch: 0.1913 0 0;
+
+  --overlay-oklch: 1 0 0;
+  --overlay-strength: 0.04;
+
+  --shadow-2xs: 0px 2px 5px 0px hsl(0 0% 0% / 0.3);
+  --shadow-xs: 0px 2px 5px 0px hsl(0 0% 0% / 0.3);
+  --shadow-sm: 0px 2px 5px 0px hsl(0 0% 0% / 0.6), 0px 1px 2px -1px hsl(0 0% 0% / 0.6);
+  --shadow: 0px 2px 5px 0px hsl(0 0% 0% / 0.6), 0px 1px 2px -1px hsl(0 0% 0% / 0.6);
+  --shadow-md: 0px 2px 5px 0px hsl(0 0% 0% / 0.6), 0px 2px 4px -1px hsl(0 0% 0% / 0.6);
+  --shadow-lg: 0px 2px 5px 0px hsl(0 0% 0% / 0.6), 0px 4px 6px -1px hsl(0 0% 0% / 0.6);
+  --shadow-xl: 0px 2px 5px 0px hsl(0 0% 0% / 0.6), 0px 8px 10px -1px hsl(0 0% 0% / 0.6);
+  --shadow-2xl: 0px 2px 5px 0px hsl(0 0% 0% / 1);
+
+  color-scheme: dark;
+}
+
+/* ---- Resolved colors + non-color tokens (shared by both modes) ---------- */
+:root {
+  --background: oklch(var(--background-oklch));
+  --foreground: oklch(var(--foreground-oklch));
+  --card: oklch(var(--card-oklch));
+  --card-foreground: oklch(var(--card-foreground-oklch));
+  --popover: oklch(var(--popover-oklch));
+  --popover-foreground: oklch(var(--popover-foreground-oklch));
+  --primary: oklch(var(--primary-oklch));
+  --primary-foreground: oklch(var(--primary-foreground-oklch));
+  --secondary: oklch(var(--secondary-oklch));
+  --secondary-foreground: oklch(var(--secondary-foreground-oklch));
+  --muted: oklch(var(--muted-oklch));
+  --muted-foreground: oklch(var(--muted-foreground-oklch));
+  --accent: oklch(var(--accent-oklch));
+  --accent-foreground: oklch(var(--accent-foreground-oklch));
+  --destructive: oklch(var(--destructive-oklch));
+  --destructive-foreground: oklch(var(--destructive-foreground-oklch));
+  --border: oklch(var(--border-oklch));
+  --input: oklch(var(--input-oklch));
+  --ring: oklch(var(--ring-oklch));
+  --sidebar: oklch(var(--sidebar-oklch));
+
+  /* Doom 64 is a hard-edged theme — no rounding anywhere. */
+  --radius: 0px;
+
+  --font-sans: "Oxanium", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Source Code Pro", ui-monospace, "JetBrains Mono", monospace;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  /* Raised surface over a card (terminal title bars, chips, icon tiles) */
+  --surface-raised: oklch(var(--overlay-oklch) / var(--overlay-strength));
+
+  /* -------------------------------------------------------------------
+     Compatibility aliases. The existing stylesheet is written against
+     these terminal-flavoured names, so they are re-pointed at Doom 64
+     rather than renamed across every rule.
+     ------------------------------------------------------------------- */
+  --imp-text-color: var(--primary); /* headline / link accent — blood red */
+  --imp-text-color-oklch: var(--primary-oklch);
+  --term-green: var(--secondary); /* shell prompt — army green            */
+  --term-green-oklch: var(--secondary-oklch);
+  --term-cyan: var(--accent); /* secondary highlight — steel blue     */
+  --term-cyan-oklch: var(--accent-oklch);
+  --term-amber: var(--destructive); /* hashes / timestamps — orange         */
+  --term-amber-oklch: var(--destructive-oklch);
+  --term-bg: var(--card);
+  --term-border: var(--border);
+  --term-text: var(--foreground);
+  --term-muted: var(--muted-foreground);
+
+  --section-background-color: linear-gradient(
+    to bottom left,
+    oklch(var(--background-oklch) / 0.86),
+    oklch(var(--sidebar-oklch) / 0.94)
+  );
+
+  --image-gradient: linear-gradient(
+    to bottom left,
+    oklch(var(--background-oklch) / 0.82),
+    oklch(var(--sidebar-oklch) / 0.92)
+  );
+}

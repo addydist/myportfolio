@@ -10,7 +10,8 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 
-import { CgFileDocument } from "react-icons/cg";
+import { CgFileDocument, CgMail } from "react-icons/cg";
+import ThemeToggle from "./ThemeToggle";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -102,6 +103,21 @@ function NavBar() {
                 <CgFileDocument style={{ marginBottom: "2px" }} />{" "}
                 <span className="nav-cmd">./</span>resume
               </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/contact"
+                onClick={() => updateExpanded(false)}
+              >
+                <CgMail style={{ marginBottom: "2px" }} />{" "}
+                <span className="nav-cmd">./</span>contact
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item className="d-flex align-items-center">
+              <ThemeToggle />
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
