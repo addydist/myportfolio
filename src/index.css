@@ -4,6 +4,21 @@
   box-sizing: border-box;
 }
 
+/* The page background lives on <html>, not <body>.
+   The no-flash script in public/index.html sets an inline background on
+   <html>; once <html> has its own background, <body>'s would stop
+   propagating to the page canvas and would instead paint as a normal box
+   over any negatively-stacked section. Keeping it here avoids that trap. */
+html {
+  background-color: var(--background);
+  background-image: linear-gradient(
+    180deg,
+    oklch(var(--background-oklch)) 0%,
+    oklch(var(--sidebar-oklch)) 100%
+  );
+  background-attachment: fixed;
+}
+
 body {
   margin: 0;
   /* Source Code Pro is the Doom 64 mono face and keeps the terminal look. */
@@ -12,14 +27,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--foreground);
-  background-color: var(--background);
-  background-image: linear-gradient(
-    180deg,
-    oklch(var(--background-oklch)) 0%,
-    oklch(var(--sidebar-oklch)) 100%
-  );
-  background-attachment: fixed;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  background: transparent;
+  transition: color 0.25s ease;
 }
 
 /* Oxanium is the Doom 64 display face — used for headings and chrome. */

@@ -4,6 +4,7 @@ import Particle from "../Particle";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import Toolstack from "./Toolstack";
+import Experience from "./Experience";
 import Github from "./Github";
 
 function About() {
@@ -20,6 +21,12 @@ function About() {
             <Aboutcard />
           </Col>
         </Row>
+
+        <h1 className="section-heading" id="experience">
+          <span className="terminal-prompt">$</span> git log{" "}
+          <span className="purple">--work</span>
+        </h1>
+        <Experience />
 
         <h1 className="section-heading">
           <span className="terminal-prompt">$</span> ls{" "}

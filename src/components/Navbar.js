@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
-  AiOutlineFieldTime,
   AiOutlineUser,
 } from "react-icons/ai";
 
@@ -81,19 +80,6 @@ function NavBar() {
                 <span className="nav-cmd">./</span>projects
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/work"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFieldTime
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                <span className="nav-cmd">./</span>work
-              </Nav.Link>
-            </Nav.Item>
-
             <Nav.Item>
               <Nav.Link
                 as={Link}

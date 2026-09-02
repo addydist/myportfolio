@@ -185,15 +185,11 @@
   --term-text: var(--foreground);
   --term-muted: var(--muted-foreground);
 
+  /* Tint laid over the fixed page gradient by the inner content sections.
+     The home page deliberately has no section background — see .home-section. */
   --section-background-color: linear-gradient(
     to bottom left,
     oklch(var(--background-oklch) / 0.86),
     oklch(var(--sidebar-oklch) / 0.94)
-  );
-
-  --image-gradient: linear-gradient(
-    to bottom left,
-    oklch(var(--background-oklch) / 0.82),
-    oklch(var(--sidebar-oklch) / 0.92)
   );
 }

@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
-import Work from "./components/Work/Projects"
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
 import Contact from "./components/Contact/Contact";
@@ -16,8 +15,8 @@ import {
 } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import { ThemeProvider } from "./theme/ThemeContext";
-// Bootstrap first so the Doom 64 tokens and our rules below can override it.
-import "bootstrap/dist/css/bootstrap.min.css";
+// Bootstrap and index.css are loaded first, in src/index.js — these come after
+// so the Doom 64 tokens and our rules win the cascade.
 import "./theme.css";
 import "./style.css";
 import "./App.css";
@@ -45,7 +44,8 @@ function App() {
             <Route path="/project" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/resume" element={<Resume />} />
-            <Route path="/work" element={<Work/>}/>
+            {/* Work experience now lives inside About — keep old links alive. */}
+            <Route path="/work" element={<Navigate to="/about" replace />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Navigate to="/"/>} />
           </Routes>

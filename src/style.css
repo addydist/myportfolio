@@ -35,10 +35,18 @@ button:focus-visible {
   justify-content: center;
 }
 
+/* Keep the faded-out preloader pinned and out of flow — without position it
+   collapses into a static block at the top of the page and shifts content. */
 #preloader-none {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
 }
 
 .boot-text {
@@ -329,20 +337,35 @@ button:focus-visible {
   }
 }
 
+/* Particle field sits behind page content but above the page background.
+   (It must not be negatively stacked — that would put it behind the canvas.) */
 #tsparticles {
   position: fixed !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
+/* Everything readable is lifted above the particle layer. */
+.home-content,
+.home-about-section,
+.project-section > .container,
+.about-section > .container,
+.resume-section > .container,
+.contact-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* No background of its own: the hero box ends at min-height:100vh, so painting
+   a gradient here left a visible seam where .home-about-section below it fell
+   back to the page gradient. Both now share the fixed <html> gradient. */
 .home-section {
   position: relative;
-  z-index: -1;
-  background: var(--image-gradient), var(--background);
-  background-position: top center;
-  background-repeat: no-repeat;
   padding-bottom: 30px !important;
   padding-top: 30px !important;
   min-height: 100vh;
@@ -529,7 +552,9 @@ button:focus-visible {
 
 .section-subtitle {
   color: var(--term-muted);
-  margin-bottom: 1.8em;
+  /* max-width alone leaves the box hugging the left edge — auto side margins
+     centre the box itself, not just the text inside it. */
+  margin: 0 auto 1.8em;
   max-width: 62ch;
 }
 
@@ -735,6 +760,8 @@ button:focus-visible {
 .git-log {
   margin-top: 1.5em;
   padding-bottom: 2em;
+  /* .App centres everything; a git log reads left-aligned against its rail. */
+  text-align: left;
 }
 
 .git-commit {

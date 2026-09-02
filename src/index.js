@@ -1,5 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+// Bootstrap must load before index.css, or its reboot (body background, font)
+// overrides our base styles — index.css is imported before App, and App is
+// where the rest of the stylesheets live.
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";

@@ -22,8 +22,8 @@ function Home2() {
                   </h2>
                   <p className="home-about-body">
                     I've developed a strong passion for building things with
-                    code &mdash; from full-stack web apps to AI-powered
-                    platforms and browser extensions.
+                    code &mdash; from full-stack web apps to AI-native
+                    platforms and backend tooling.
                     <br />
                     <br />
                     I'm fluent in classics like{" "}
@@ -39,8 +39,7 @@ function Home2() {
                     <b className="purple">
                       Technology Consultant @ EXA AG
                     </b>
-                    , contributing to the Kyano of SNP
-                    Group.
+                    , contributing to the Kyano platform for SNP Group.
                     <br />
                     <br />
                     My fields of interest include building scalable{" "}
@@ -53,22 +52,57 @@ function Home2() {
                     <i>
                       <b className="purple">AI &amp; Automation</b>
                     </i>{" "}
-                    &mdash; integrating multi-LLM providers into workflow
-                    tools and intelligent applications.
+                    &mdash; wiring LLMs and{" "}
+                    <b className="purple">MCP servers</b> into workflow tools
+                    and intelligent applications.
                     <br />
                     <br />
-                    Whenever I get the time, I hack on side projects &mdash;
-                    most recently{" "}
+                    Whenever I get the time, I hack on side projects.{" "}
                     <i>
                       <b className="purple">Nodeflo</b>
-                    </i>
-                    , a self-hostable workflow automation platform where AI
-                    builds the workflow from a plain-English prompt, and{" "}
+                    </i>{" "}
+                    is a self-hostable, n8n-style automation platform where AI
+                    builds the whole workflow from a plain-English prompt,
+                    running on Next.js 15, tRPC and Inngest.{" "}
                     <i>
                       <b className="purple">MonsoonSafe</b>
-                    </i>
-                    , a GenAI monsoon-preparedness assistant built for
-                    PromptWars.
+                    </i>{" "}
+                    is a GenAI monsoon-preparedness assistant built for
+                    PromptWars, pairing live weather data with Gemini. And{" "}
+                    <i>
+                      <b className="purple">Watchlist Analyst</b>
+                    </i>{" "}
+                    is a Python MCP server that lets Claude reason over a
+                    persistent NSE/BSE stock watchlist.
+                    <br />
+                    <br />
+                    I enjoy backend problems for their own sake too &mdash;{" "}
+                    <i>
+                      <b className="purple">Smart Cache API</b>
+                    </i>{" "}
+                    is a NestJS service exploring tag-based cache invalidation
+                    and stampede protection.
+                    <br />
+                    <br />
+                    Say hi on{" "}
+                    <a
+                      href="https://www.linkedin.com/in/aditya-pal-85066520b/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-link"
+                    >
+                      LinkedIn
+                    </a>
+                    , or browse the code on{" "}
+                    <a
+                      href="https://github.com/addydist?tab=repositories"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-link"
+                    >
+                      GitHub
+                    </a>
+                    .
                   </p>
                 </Col>
                 <Col md={4} className="myAvtar">

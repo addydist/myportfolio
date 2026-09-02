@@ -47,7 +47,12 @@ export function ThemeProvider({ children }) {
   const [isExplicit, setIsExplicit] = useState(() => readStoredTheme() !== null);
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
+    const root = document.documentElement;
+    root.setAttribute("data-theme", theme);
+    // The no-flash script in index.html paints an inline background on <html>
+    // to avoid a white flash. Clear it once React is driving the theme, or it
+    // would pin the page to the boot-time colour after a toggle.
+    root.style.backgroundColor = "";
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) {
       meta.setAttribute("content", theme === "dark" ? "#1a1a1a" : "#cccccc");

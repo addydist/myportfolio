@@ -6,7 +6,6 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { CgExternal } from "react-icons/cg";
 import Particle from "../Particle";
 import TerminalWindow from "../Terminal/TerminalWindow";
-import { useTheme } from "../../theme/ThemeContext";
 
 /**
  * Typeform form id — the part after /to/ in a share link:
@@ -77,8 +76,6 @@ function TypeformSetupNotice() {
 }
 
 function Contact() {
-  const { theme } = useTheme();
-
   return (
     <Container fluid className="contact-section">
       <Particle />
@@ -106,13 +103,16 @@ function Contact() {
                       # takes under a minute
                     </span>
                   </p>
+                  {/* The form paints its own background rather than being made
+                      transparent (opacity=0): the question text colour lives in
+                      Typeform's own design settings and cannot follow the page
+                      theme, so a transparent form would be unreadable in one of
+                      the two modes. Deliberately not keyed on `theme` either —
+                      remounting would reload the iframe and discard whatever
+                      the visitor had already typed. */}
                   <Widget
-                    /* Remount on theme change so the iframe repaints against
-                       the new page background. */
-                    key={theme}
                     id={TYPEFORM_ID}
                     className="typeform-widget"
-                    opacity={0}
                     inlineOnMobile
                     transitiveSearchParams
                   />
@@ -137,7 +137,6 @@ function Contact() {
                       id={TYPEFORM_ID}
                       className="term-link"
                       size={80}
-                      opacity={0}
                     >
                       <CgExternal /> ./open-form
                     </PopupButton>
